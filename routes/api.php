@@ -2,7 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\News;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+//при обращении на данный роут возвращаем новости 
+Route::get('news', function () {
+    $news = News::all();
+    return $news;
+});
